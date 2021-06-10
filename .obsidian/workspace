@@ -9,6 +9,17 @@
         "state": {
           "type": "markdown",
           "state": {
+            "file": "Paper.md",
+            "mode": "source"
+          }
+        }
+      },
+      {
+        "id": "f70bff118ca1acb4",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
             "file": "ReadMe.md",
             "mode": "source"
           }
@@ -68,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ReadMe.md",
+                "file": "Paper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ReadMe.md",
+                "file": "Paper.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -97,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ReadMe.md"
+                "file": "Paper.md"
               }
             }
           },
@@ -113,10 +124,12 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 281
   },
   "active": "f9bd4a6904beb6ad",
   "lastOpenFiles": [
+    "Paper.md",
+    "_templates/Article.md",
     "ReadMe.md",
     "Untitled.md"
   ]

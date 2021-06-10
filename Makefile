@@ -13,9 +13,9 @@ STYLE := _pandoc/pandoc.css
 
 OPTS :=  --from=markdown+simple_tables+table_captions+yaml_metadata_block+smart
 ARGS := --citeproc \
+				--bibliography=$(BIB_FILE) \
 				--toc
 
-# --bibliography=$(BIB_FILE) \
 
 .PHONY : info
 info:
@@ -30,7 +30,7 @@ info:
 .PHONY : watch
 watch:
 	@echo ------ Building on file changes -----
-	@ls *.md | entr make all
+	@ls *.md | entr make acm
 
 .PHONY : all
 all : $(HTML) $(PDF) $(DOCX)
@@ -51,12 +51,23 @@ $(HTML) : $(SOURCE) $(STYLE)
 pdf : $(PDF)
 $(PDF) : $(SOURCE)
 	@echo --- Generating PDF ---
-	@pandoc $(OPTS)+raw_tex $(ARGS) -w latex -s \
+	@pandoc $(OPTS)+raw_tex $(ARGS) -t pdf \
 		--shift-heading-level-by=0 \
 		--default-image-extension=pdf \
 		-V papersize:a4 \
 		--pdf-engine xelatex \
 		-o $@ $<
+
+.PHONY : acm
+acm : Paper.md
+	@echo --- Generating ACM PDF ---
+	@pandoc $(OPTS)+raw_tex $(ARGS) -t pdf \
+		--template=_templates/sigconf2.tex \
+		--shift-heading-level-by=0 \
+		--default-image-extension=pdf \
+		-V papersize:a4 \
+		--pdf-engine xelatex \
+		-o _out/Paper.pdf $<
 
 .PHONY : doc
 doc: $(DOCX)

@@ -1,0 +1,119 @@
+%% Begin the document based on the review and published state
+$if(review)$
+\documentclass[manuscript,screen,review,anonymous]{acmart}
+$elseif(published)$
+\documentclass[sigconf]{acmart}
+$else$
+\documentclass[manuscript,screen,review]{acmart}
+$endif$
+
+% Make Pandoc happy
+\newenvironment{CSLReferences}%
+  {}%
+  {\par}
+
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+\usepackage{booktabs}
+\usepackage{caption}	 % http://mirror.easyname.at/ctan/macros/latex/contrib/caption/caption-eng.pdf
+
+\usepackage{balance}	% balancing bibstyles as per request in accepted submission
+\usepackage{graphicx}
+% % We will generate all images so they have a width \maxwidth. This means
+% % that they will get their normal width if they fit onto the page, but
+% % are scaled down if they would overflow the margins.
+% \makeatletter
+% \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+% \else\Gin@nat@width\fi}
+% \makeatother
+% \let\Oldincludegraphics\includegraphics
+% \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+$for(acm)$
+\copyrightyear{$acm.copyrightyear$}
+\acmYear{$acm.copyrightyear$}
+\setcopyright{$acm.copyright$}
+\acmConference[$acm.conference$]{$acm.conferencetitle$}{$acm.date$}{$acm.location$}
+\acmBooktitle{$acm.booktitle$}
+\acmPrice{$acm.price$}
+\acmISBN{$acm.bookisbn$}
+\acmDOI{$acm.doi$}
+$endfor$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$for(author)$
+	\author{$author.name$}
+	$if(author.orcid)$
+		\orcid{$author.orcid$}
+	$endif$
+	\affiliation{
+		$if(author.institution)$
+			\institution{$author.institution$}
+		$endif$
+		$if(author.department)$
+			\institution{$author.department$}
+		$endif$
+		$if(author.city)$
+			\city{$author.city$}
+		$endif$
+		$if(author.country)$
+			\country{$author.country$}
+		$endif$
+	}
+	\email{$author.email$}
+$endfor$
+
+$if(final)$
+	$if(poster)$
+		\settopmatter{printacmref=false, printfolios=false}
+	$else$
+		\settopmatter{printacmref=true}
+	$endif$
+$endif$
+
+\begin{document}
+
+$if(final)$
+	\fancyhead{}
+$endif$
+
+$if(title)$
+	\title{$title$}
+$endif$
+$if(subtitle)$
+	\subtitle{$subtitle$}
+$endif$
+
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+
+\renewcommand{\shortauthors}{$shortauthors$}
+
+
+\maketitle
+\bibliographystyle{ACM-Reference-Format}
+
+$body$
+
+
+$if(bibliography)$
+	\balance
+	\bibliography{$bibliography$}
+$endif$
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-authordraft.tex'.
