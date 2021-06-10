@@ -1,7 +1,7 @@
 ---
 title: "`{{title}}`"
 subtitle: ""
-author: "Byline: Jens A. Ewald"
+author: "Jens A. Ewald"
 date: "Drafted on `{{date:YYYY-MM-DD}}`"
 # I don’t like having to manually change the language for DOCX files
 lang: en-GB 
