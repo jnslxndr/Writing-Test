@@ -26,12 +26,18 @@ info:
 	@echo $(PDF)
 	@echo $(PDF)
 
+
+.PHONY : watch
+watch:
+	@echo ------ Building on file changes -----
+	@ls *.md | entr make all
+
 .PHONY : all
 all : $(HTML) $(PDF) $(DOCX)
 
 .PHONY : html
 html: $(HTML)
-$(HTML) : %.md $(STYLE)
+$(HTML) : $(SOURCE) $(STYLE)
 	@echo --- Generating HTML ---
 	@pandoc $(OPTS)+ascii_identifiers $(ARGS) -s -w html \
 		--css $(STYLE) --self-contained \
@@ -43,7 +49,7 @@ $(HTML) : %.md $(STYLE)
 
 .PHONY : pdf
 pdf : $(PDF)
-$(PDF) : Paper.md
+$(PDF) : $(SOURCE)
 	@echo --- Generating PDF ---
 	@pandoc $(OPTS)+raw_tex $(ARGS) -w latex -s \
 		--shift-heading-level-by=0 \
@@ -54,7 +60,7 @@ $(PDF) : Paper.md
 
 .PHONY : doc
 doc: $(DOCX)
-$(DOCX) : %.md
+$(DOCX) : $(SOURCE)
 	@echo --- Generating DOCX ---
 	@pandoc $(OPTS) $(ARGS) -w docx \
 		--katex \

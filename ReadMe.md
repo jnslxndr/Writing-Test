@@ -2,6 +2,11 @@
 
 The purpose is to have a safe playground to test Obsidian features and flows for writing academic texts in Markdown.
 
+This base would not be possible without these helpful resources:
+
+- https://blog.achintyarao.in/post/markdown-pandoc-make/
+- https://github.com/andrewheiss/portable-pandoc-magic
+
 ## Installing BasicTex for Pandoc rendering
 
 Basic Tex is nice because it is small in download compared to the big MacTex package.

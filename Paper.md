@@ -1,7 +1,7 @@
 ---
 title: "`Paper A`"
 subtitle: ""
-author: "Byline: Jens A. Ewald"
+author: "Jens A. Ewald"
 date: "Drafted on 2021-06-09"
 # I don’t like having to manually change the language for DOCX files
 lang: en-GB 
@@ -24,4 +24,10 @@ header-includes:
 
 # An Article
 
-Content goes here
+Content goes here[^Content].
+
+[^Content]: Of course there shouldbe more than these three words.
+
+Here is an inline note.^[Inlines notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]
