@@ -10,9 +10,36 @@ $else$
 $endif$
 
 % Make Pandoc happy
+$if(csl-refs)$
+% \newlength{\cslhangindent}
+% \setlength{\cslhangindent}{1.5em}
+% \newlength{\csllabelwidth}
+% \setlength{\csllabelwidth}{3em}
 \newenvironment{CSLReferences}%
   {}%
   {\par}
+% \newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+%  {% don't indent paragraphs
+%   \setlength{\parindent}{0pt}
+%   % turn on hanging indent if param 1 is 1
+%   \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+%   % set entry spacing
+%   \ifnum #2 > 0
+%   \setlength{\parskip}{#2\baselineskip}
+%   \fi
+%  }%
+%  {}
+\usepackage{calc} % for \widthof, \maxof
+% \newcommand{\CSLBlock}[1]{#1\hfill\break}
+% \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
+% \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth}{#1}}
+% \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\newcommand{\CSLBlock}[1]{#1}
+\newcommand{\CSLLeftMargin}[1]{#1}
+\newcommand{\CSLRightInline}[1]{#1}
+\newcommand{\CSLIndent}[1]{#1}
+$endif$
+  
 
 %% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
@@ -123,22 +150,15 @@ $if(keywords)$
 \keywords{$keywords$}
 $endif$
 
-
+% Main body of the document
 $body$
 
-
 $if(bibliography)$
-  % $if(bibliography_title)$
-  % \section{$bibliography_title$}
-  % $else$
-  % \section{References}
-  % $endif$
-  % \balance
-  % \bibliographystyle{ACM-Reference-Format}
-  % \bibliography{$bibliography$}
+  \section{References}
+  \balance
+  \bibliographystyle{ACM-Reference-Format}
+  \bibliography{$bibliography$}
 $endif$
 
 \end{document}
 \endinput
-%%
-%% End of file `sample-authordraft.tex'.

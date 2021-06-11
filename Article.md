@@ -38,4 +38,7 @@ note.] There is a great blog [@raoMarkdownPandocMake2020] which got me started w
 
 \marginpar{using \\marginpar\{…\} to add a margin note in PDF/Tex documents.}
 
+![Editing a template in Visual Studion Code](images/vscode-view.png){#fig:vscode-view}
+
+
 # References

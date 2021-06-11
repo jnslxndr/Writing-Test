@@ -5,19 +5,20 @@ HTML := $(patsubst %.md,_out/%.html, $(SOURCE))
 PDF := $(patsubst %.md,_out/%.pdf, $(SOURCE))
 DOCX := $(patsubst %.md,_out/%.docx, $(SOURCE))
 
-BIB_FILE := references.bib
+# BIB_FILE := references.bib
 
 STYLE := _pandoc/pandoc.css
 # Source: https://gist.github.com/killercup/5917178
 # Make sure you save this in the same directory as shown or change the path.
 
-OPTS :=  --from=markdown+simple_tables+table_captions+yaml_metadata_block+smart
+OPTS :=  --from=markdown+smart+simple_tables+table_captions+yaml_metadata_block+smart
 
 ARGS := \
 	--filter pandoc-crossref \
 	--citeproc \
-	--bibliography=$(BIB_FILE) \
+	--csl=styles/acm-sig-proceedings-long-author-list.csl \
 	--toc
+# 	--bibliography=$(BIB_FILE) \
 
 
 .PHONY : info
@@ -64,12 +65,14 @@ $(PDF) : $(SOURCE)
 .PHONY : acm
 acm : Paper.md
 	@echo --- Generating ACM Format ---
-	@pandoc $(OPTS)+raw_tex $(ARGS) -t pdf \
+	@pandoc $(OPTS) $(ARGS) -s -t latex \
 		--template=_templates/sigconf.tex \
 		--shift-heading-level-by=0 \
 		--default-image-extension=pdf \
 		--pdf-engine xelatex \
-		-o _out/Paper.pdf $<
+		--include-after-body=appendix.tex \
+		-o Paper.tex $<
+	pdflatex Paper.tex
 	@echo --- Finished ACM Format ---
 
 # -V papersize:a4 \

@@ -24,8 +24,7 @@ author:
     city: Ahmedabad
     country: India
 # acmauthoryear: true
-# bibliography: "references"
-abstract: A clear and well-documented \LaTeX\ document is presented as an
+abstract: A clear and well-documented \LaTeX\ @Lamport:LaTeX document is presented as an
   article formatted for publication by ACM in a conference proceedings
   or journal publication. Based on the ``acmart'' document class, this
   article presents and explains many of the common variations, as well
@@ -71,16 +70,22 @@ _CCS: \begin{CCSXML}
   \ccsdesc[500]{General and reference~General literature}
   \ccsdesc[500]{General and reference~Computing standards, RFCs and guidelines}
   \ccsdesc[100]{Human-centered computing~Accessibility systems and tools}
-figureTitle: |
-  Figure #
-autoSectionLabels: true
+# figureTitle: |
+#   Figure #
+bibliography: references.bib
+suppress-bibliography: true
+reference-section-title: References
 ---
 
 # Introduction
 
+I had this initia l idea of being able to write Markdown documents. A very leighty weight markup for plain text documents would make it easier and less resource intensive to write. Furthermore, I do take my notes in this style of writing.
+
+A first research brought me to a blog post [@raoMarkdownPandocMake2020] outlining a simple setup to produce shareable versions of a note as an article in PDF, HTML, and DOCX.
+
 Ullamco pariatur nostrud commodo ullamco magna ea. Non et magna magna dolor officia do proident cillum eiusmod reprehenderit irure laborum sit mollit. Elit ipsum esse non irure proident magna fugiat reprehenderit laborum quis id pariatur velit cillum. Elit qui esse dolore sint ex aliquip proident mollit minim dolore esse qui. Deserunt mollit elit nisi dolore est ad deserunt.^[Foot notes can also be inlined.]
 
-Eiusmod laborum ipsum pariatur veniam eu non quis exercitation minim commodo incididunt consequat. Adipisicing sunt veniam do magna. Enim elit adipisicing nulla ad Lorem ea reprehenderit ullamco proident reprehenderit eu. Id anim est aliqua ut anim ut velit et cupidatat minim incididunt in. Labore velit in enim minim consequat exercitation Lorem do sunt exercitation ad do aliquip. Elit velit Lorem veniam mollit est sint aute excepteur exercitation et. Amet quis cillum fugiat ex.[@raoMarkdownPandocMake2020] 
+Eiusmod laborum ipsum pariatur veniam eu non quis exercitation minim commodo incididunt consequat. Adipisicing sunt veniam do magna. Enim elit adipisicing nulla ad Lorem ea reprehenderit ullamco proident reprehenderit eu. Id anim est aliqua ut anim ut velit et cupidatat minim incididunt in. Labore velit in enim minim consequat exercitation Lorem do sunt exercitation ad do aliquip. Elit velit Lorem veniam mollit est sint aute excepteur exercitation et. Amet quis cillum fugiat ex.
 
 # Preconditions
 
@@ -95,8 +100,3 @@ Magna occaecat fugiat aliquip reprehenderit qui exercitation pariatur cillum tem
 
 ![Editing a template in Visual Studio Code.](images/vscode-view.png){#fig:vscode-view}
 
-# References {-}
-
-\balance
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{sample-base}
