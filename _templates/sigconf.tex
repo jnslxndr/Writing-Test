@@ -50,6 +50,31 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+% $if(final)$
+%   $if(poster)$
+%     \settopmatter{printacmref=false, printfolios=false}
+%   $else$
+%     \settopmatter{printacmref=true}
+%   $endif$
+% $endif$
+
+$if(acmauthoryear)$
+% \citestyle{acmauthoryear}
+$endif$
+
+\begin{document}
+
+% $if(final)$
+%   \fancyhead{}
+% $endif$
+
+$if(title)$
+  \title{$title$}
+$endif$
+$if(subtitle)$
+  \subtitle{$subtitle$}
+$endif$
+
 $for(author)$
 \author{$author.name$}
 $if(author.orcid)$
@@ -80,32 +105,6 @@ $if(author.institution)$
 $endif$
 $endfor$
 
-% $if(final)$
-%   $if(poster)$
-%     \settopmatter{printacmref=false, printfolios=false}
-%   $else$
-%     \settopmatter{printacmref=true}
-%   $endif$
-% $endif$
-
-\begin{document}
-
-$if(acmauthoryear)$
-\citestyle{acmauthoryear}
-$endif$
-
-% $if(final)$
-%   \fancyhead{}
-% $endif$
-
-$if(title)$
-  \title{$title$}
-$endif$
-$if(subtitle)$
-  \subtitle{$subtitle$}
-$endif$
-
-
 $if(abstract)$
 \begin{abstract}
 $abstract$
@@ -135,8 +134,8 @@ $if(bibliography)$
   % \section{References}
   % $endif$
   % \balance
-  \bibliographystyle{ACM-Reference-Format}
-  \bibliography{$bibliography$}
+  % \bibliographystyle{ACM-Reference-Format}
+  % \bibliography{$bibliography$}
 $endif$
 
 \end{document}

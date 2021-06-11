@@ -23,8 +23,8 @@ author:
     institution: National Institue for Design
     city: Ahmedabad
     country: India
-# acmauthoryear: "true"
-bibliography: "references"
+# acmauthoryear: true
+# bibliography: "references"
 abstract: A clear and well-documented \LaTeX\ document is presented as an
   article formatted for publication by ACM in a conference proceedings
   or journal publication. Based on the ``acmart'' document class, this
@@ -95,4 +95,8 @@ Magna occaecat fugiat aliquip reprehenderit qui exercitation pariatur cillum tem
 
 ![Editing a template in Visual Studio Code.](images/vscode-view.png){#fig:vscode-view}
 
-# References
+# References {-}
+
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
