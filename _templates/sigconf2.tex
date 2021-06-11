@@ -80,9 +80,11 @@ $endif$
 
 \begin{document}
 
-$if(final)$
-	\fancyhead{}
-$endif$
+\citestyle{acmauthoryear}
+
+% $if(final)$
+% 	\fancyhead{}
+% $endif$
 
 $if(title)$
 	\title{$title$}
@@ -98,18 +100,26 @@ $abstract$
 \end{abstract}
 $endif$
 
-
 \renewcommand{\shortauthors}{$shortauthors$}
 
-
 \maketitle
-\bibliographystyle{ACM-Reference-Format}
+
+$if(keywords)$
+\keywords{$keywords$}
+$endif$
+
 
 $body$
 
 
 $if(bibliography)$
-	\balance
+  % $if(bibliography_title)$
+  % \section{$bibliography_title$}
+  % $else$
+  % \section{References}
+  % $endif$
+	% \balance
+  \bibliographystyle{ACM-Reference-Format}
 	\bibliography{$bibliography$}
 $endif$
 

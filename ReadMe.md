@@ -32,3 +32,60 @@ To generate a new set of documents simply run `make`.
 
 To clear the build output run `make clean`.
 
+## Preparing the writing machine
+
+To use the `acmart` document class install the following packages. To make the CTAN repository known to the `tlmgr` add it and update the package index.
+
+```shell
+sudo tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
+sudo tlmgr update --all
+```
+
+```shell
+# This might take a while to install
+sudo tlmgr install \
+  acmart \
+  amscls \
+  amsfonts \
+  amsmath \
+  booktabs \
+  caption \
+  comment \
+  cm-super \
+  cmap \
+  draftwatermark \
+  environ \
+  etoolbox \
+  fancyhdr \
+  float \
+  fontaxes \
+  geometry \
+  graphics \
+  graphics-def \
+  hyperref \
+  hyperxmp \
+  iftex \
+  ifmtarg \
+  inconsolata \
+  kastrup \
+  libertine \
+  microtype \
+  mmap \
+  ms \
+  mweights \
+  natbib \
+  ncctools \
+  newtx \
+  oberdiek \
+  preprint \
+  refcount \
+  setspace \
+  textcase \
+  totpages \
+  trimspaces \
+  upquote \
+  url \
+  xcolor \
+  xkeyval \
+  xstring
+```

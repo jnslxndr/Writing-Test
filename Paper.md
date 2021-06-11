@@ -4,15 +4,16 @@ date: 2021
 review: true
 published: false
 # anonymous: true
-author: 
+author:
   - name: Jens A. Ewald
+    email: jens.a.ewald@northumbria.ac.uk
     institution: University of Northumbria
-    # orcid: 0000-0000-0000-0000
     city: Newcastle upon Tyne
     country: United Kinfdom
-    email: jens.a.ewald@northumbria.ac.uk
-bibliography: "references"
+    # orcid: 0000-0000-0000-0000
 # acmauthoryear: "true"
+bibliography: "references"
+keywords: plaintext, academic publishing, markdown
 abstract: A clear and well-documented \LaTeX\ document is presented as an
   article formatted for publication by ACM in a conference proceedings
   or journal publication. Based on the ``acmart'' document class, this
@@ -55,10 +56,6 @@ abstract: A clear and well-documented \LaTeX\ document is presented as an
 \ccsdesc{Computer systems organization~Robotics}
 \ccsdesc[100]{Networks~Network reliability}
 
-<!-- %%
-%% Keywords. The author(s) should pick words that accurately describe
-%% the work being presented. Separate the keywords with commas. -->
-\keywords{datasets, neural networks, gaze detection, text tagging}
 
 # Introduction
 
@@ -68,65 +65,9 @@ Eiusmod laborum ipsum pariatur veniam eu non quis exercitation minim commodo inc
 
 # Preconditions
 
-To use the `acmart` document class install the following packages. To make the CTAN repository known to the `tlmgr` add it and update the package index.
-
-```shell
-sudo tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
-sudo tlmgr update --all
-```
-
-```shell
-# This might take a while to install
-sudo tlmgr install \
-  acmart \
-  amscls \
-  amsfonts \
-  amsmath \
-  booktabs \
-  caption \
-  comment \
-  cm-super \
-  cmap \
-  draftwatermark \
-  environ \
-  etoolbox \
-  fancyhdr \
-  float \
-  fontaxes \
-  geometry \
-  graphics \
-  graphics-def \
-  hyperref \
-  hyperxmp \
-  iftex \
-  ifmtarg \
-  inconsolata \
-  kastrup \
-  libertine \
-  microtype \
-  mmap \
-  ms \
-  mweights \
-  natbib \
-  ncctools \
-  newtx \
-  oberdiek \
-  preprint \
-  refcount \
-  setspace \
-  textcase \
-  totpages \
-  trimspaces \
-  upquote \
-  url \
-  xcolor \
-  xkeyval \
-  xstring
-```
-
 Amet excepteur cupidatat incididunt excepteur labore deserunt exercitation eiusmod sit irure nisi voluptate. Mollit ullamco dolor dolore quis esse magna adipisicing laboris nostrud fugiat cupidatat exercitation dolore. Lorem ipsum ad exercitation incididunt nisi sint pariatur eu aliquip et laboris. Id labore veniam elit consequat consectetur sit minim nulla. Ut proident proident nulla excepteur ex ullamco. Culpa ea reprehenderit eu pariatur nisi ex. In laborum culpa ea anim labore ipsum et sunt.
 
-Qui tempor ipsum voluptate cupidatat incididunt nisi exercitation occaecat nisi occaecat qui dolore ullamco enim. Dolor veniam cillum duis aliquip in ut deserunt enim. Reprehenderit cupidatat nostrud irure amet sint ea adipisicing labore veniam dolore Lorem reprehenderit.
+Qui tempor ipsum voluptate cupidatat incididunt nisi exercitation occaecat nisi occaecat qui dolore ullamco enim. Dolor veniam cillum duis aliquip in ut deserunt enim. Reprehenderit cupidatat nostrud irure amet sint ea adipisicing labore veniam dolore Lorem reprehenderit.[@xieMarkdownDefinitiveGuide2018]
 
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{references}
+
+# References
