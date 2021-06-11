@@ -12,9 +12,12 @@ STYLE := _pandoc/pandoc.css
 # Make sure you save this in the same directory as shown or change the path.
 
 OPTS :=  --from=markdown+simple_tables+table_captions+yaml_metadata_block+smart
-ARGS := --citeproc \
-				--bibliography=$(BIB_FILE) \
-				--toc
+
+ARGS := \
+	--filter pandoc-crossref \
+	--citeproc \
+	--bibliography=$(BIB_FILE) \
+	--toc
 
 
 .PHONY : info
@@ -60,14 +63,17 @@ $(PDF) : $(SOURCE)
 
 .PHONY : acm
 acm : Paper.md
-	@echo --- Generating ACM PDF ---
+	@echo --- Generating ACM Format ---
 	@pandoc $(OPTS)+raw_tex $(ARGS) -t pdf \
-		--template=_templates/sigconf2.tex \
+		--template=_templates/sigconf.tex \
 		--shift-heading-level-by=0 \
 		--default-image-extension=pdf \
-		-V papersize:a4 \
 		--pdf-engine xelatex \
 		-o _out/Paper.pdf $<
+	@echo --- Finished ACM Format ---
+
+# -V papersize:a4 \
+
 
 .PHONY : doc
 doc: $(DOCX)
